@@ -1,0 +1,29 @@
+import { SubHeading } from '../../components'
+import { images, data } from '../../constants'
+import './Laurels.css'
+export const Laurels = () => {
+  const AwardCard = ({ imgUrl, title, subtitle }) => (
+    <div className='app__laurels_awards-card'>
+      <img src={imgUrl} alt='award' />
+      <div className='app__laurels_awards-card_content'>
+        <p className='p__cormorant' style={{ color: '#DCCA87' }}>{title}</p>
+        <p className='p__cormorant'>{subtitle}</p>
+      </div>
+    </div>
+  )
+
+  return (
+    <div id='awards' className='app__bg app__wrapper section__padding'>
+      <div className='app__wrapper_info'>
+        <SubHeading title='Awards & recognition' />
+        <h1 className='headtext__cormorant'>Our Laurels</h1>
+        <div className='app__laurels_awards'>
+          {data.awards.map(elem => <AwardCard key={elem.title} {...elem} />)}
+        </div>
+      </div>
+      <div className='app__wrapper_img'>
+        <img src={images.laurels} alt='laurels_img' />
+      </div>
+    </div>
+  )
+}
